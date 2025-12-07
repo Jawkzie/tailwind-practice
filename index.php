@@ -49,7 +49,7 @@ $query = mysqli_query($con, $sql);
                 <i class="fa-solid fa-magnifying-glass absolute left-3 bottom-2.01 text-xl text-black/50"></i>
                 <input type="text" placeholder="¿Qué buscas el día de hoy?" class="bg-slate-800/20 m-auto rounded-4xl w-100 h-10 pl-10 focus:outline-none outline-none focus:border-r-3 focus:border-slate-600 focus:border-b-3">
                 <div class="bg-slate-800/20 absolute -right-20 w-10 h-10 rounded-xl"> <!-- TODO: OCULTARLO PARA SOLO ADMINS!-->
-                    <a href="admin.php">
+                    <a href="php/admin.php">
                         <i class="fa-solid fa-plus text-2xl p-2"></i>
                     </a>
                 </div>
