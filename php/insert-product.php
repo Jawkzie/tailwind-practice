@@ -14,7 +14,7 @@ $sql = "INSERT INTO products VALUES('$id', '$name', '$category', '$description',
 $query = mysqli_query($con, $sql);
 
 if($query) {
-    Header("location: index.php");
+    Header("location: ../index.php");
 }
 
 ?>

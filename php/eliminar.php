@@ -8,6 +8,6 @@ $sql = "DELETE FROM products WHERE id='$id'";
 $query = mysqli_query($con, $sql);
 
 if($query) {
-    Header("location: index.php");
+    Header("location: ../index.php");
 }
 ?>

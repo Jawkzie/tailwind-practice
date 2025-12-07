@@ -1,5 +1,5 @@
 <?php 
-include('connection.php');
+include('php/connection.php');
 
 $con = connection();
 
@@ -13,7 +13,7 @@ $query = mysqli_query($con, $sql);
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>MERCADITO</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
@@ -24,7 +24,7 @@ $query = mysqli_query($con, $sql);
             <ul class="flex gap-10">
                 <li class="flex items-center">
                     <i class="fa-solid fa-user text-2xl mr-2 text-sky-600"></i>
-                    <a href="#" class="flex font-semibold underline">
+                    <a href="php/login.php" class="flex font-semibold underline">
                         Sign in
                     </a>
                 </li>
@@ -67,12 +67,12 @@ $query = mysqli_query($con, $sql);
         </div>
 
         <div class="bg-slate-800/20 absolute w-8 h-8 right-5 top-15 rounded-xl"> 
-                <a href="editar.php?id=<?= $row['id'] ?>">
+                <a href="php/editar.php?id=<?= $row['id'] ?>">
                         <i class="fa-solid fa-pen-to-square text-lg p-1.5"></i>
                     </a>
                 </div>
         <div class="bg-slate-800/20 absolute w-8 h-8 right-5 top-25 rounded-xl"> 
-                <a href="eliminar.php?id=<?= $row['id'] ?>">
+                <a href="php/eliminar.php?id=<?= $row['id'] ?>">
                         <i class="fa-solid fa-trash text-lg p-1.5"></i>
                     </a>
                 </div>

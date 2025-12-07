@@ -14,6 +14,6 @@ $sql = "UPDATE products SET name='$name', category='$category', genero='$genero'
 $query = mysqli_query($con, $sql);
 
 if($query) {
-    Header("location: index.php");
+    Header("location: ../index.php");
 }
 ?>
