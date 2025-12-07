@@ -1,3 +1,13 @@
+<?php 
+include('connection.php');
+
+$con = connection();
+
+$sql = "SELECT * FROM products";
+$query = mysqli_query($con, $sql);
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +17,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body class="bg-gray-200">
+<body class="bg-neutral-200/80">
     <header class="w-full h-18 relative">
         <nav class="flex items-center justify-around z-10 w-full h-18 fixed bg-gray-300">
             <h1 class="text-4xl weight-bold font-sans font-bold"> <span class="text-sky-600 underline">M</span>arket</h1>
@@ -36,11 +46,35 @@
     
         <div class="w-full mt-5"> 
             <div class="relative w-100 m-auto flex items-center"> 
-                <i class="fa-solid fa-magnifying-glass absolute left-3 bottom-2.1 text-xl text-black/50"></i>
-                <input type="text" placeholder="¿Qué buscas el día de hoy?" class="bg-slate-800/20 m-auto rounded-4xl w-100 h-8 p-5 pl-11 focus:outline-none outline-none focus:border-b-4 border-indigo-500">
+                <i class="fa-solid fa-magnifying-glass absolute left-3 bottom-2.01 text-xl text-black/50"></i>
+                <input type="text" placeholder="¿Qué buscas el día de hoy?" class="bg-slate-800/20 m-auto rounded-4xl w-100 h-10 pl-10 focus:outline-none outline-none focus:border-r-3 focus:border-slate-600 focus:border-b-3">
             </div>
         </div>
 
-        @echo 
+<div class="max-w-7xl mx-auto px-4">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-4 m-auto">
+  <?php while($row = mysqli_fetch_array($query)): ?>
+    <div class="card flex flex-col bg-neutral-100 shadow-sm mt-10 p-5 rounded min-h-[280px]">
+      <div>
+        <p class="font-bold text-lg mb-1">
+          <?= $row['name'] ?>
+        </p> 
+        <p class="font-semibold text-md mb-4 text-black/60">
+          <?= $row['genero'] ?>
+        </p> 
+        <img src="<?= $row['img'] ?>" width="150" class="mx-auto mb-4 object-contain h-48" alt="<?= $row['name'] ?>">
+        <p class="text-sm font-semibold text-pretty text-center mb-4 line-clamp-4">
+          <?= $row['description'] ?>
+        </p> 
+      </div>
+      <div class="flex justify-between text-black/40 font-bold border-t border-black/10 pt-3 mt-auto">
+        <p><?= $row['category'] ?></p>
+        <p><?= $row['id'] ?></p>
+      </div>
+    </div>
+  <?php endwhile; ?>
+</div>
+  </div>
+
 </body>
 </html>

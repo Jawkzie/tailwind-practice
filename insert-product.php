@@ -6,11 +6,15 @@ $con = connection();
 $id = null;
 $name = $_POST['name'];
 $category = $_POST['category'];
-$genero = $_POST['description'];
-$description = $_POST['genero'];
-$img = $_POST['img'];
+$genero = $_POST['genero'];
+$description = $_POST['description'];
+$img = $_POST['image'];
 
-$sql = "INSERT into products VALUES('$id', '$name', '$category', '$description', '$genero', '$img')";
-$query = mysqli_querry($con, $sql);
+$sql = "INSERT INTO products VALUES('$id', '$name', '$category', '$description', '$genero', '$img')";
+$query = mysqli_query($con, $sql);
+
+if($query) {
+    Header("location: index.php");
+}
 
 ?>

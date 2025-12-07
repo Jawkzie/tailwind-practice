@@ -1,13 +1,3 @@
-<?php 
-include('connection.php');
-
-$con = connection();
-
-$sql = "SELECT * FROM products";
-$query = mysqli_query($con, $sql);
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,12 +7,12 @@ $query = mysqli_query($con, $sql);
 </head>
 <body>
     <div> 
-        <form action=""> 
+        <form action="insert-product.php" method="POST"> 
             <h1> Crear Producto </h1>
             <input type="text" name="name">
             <input type="text" name="id">
-            <input type="text" name="colors">
-            <input type="text" name="tallas">
+          <!--  <input type="text" name="colors"> !-->
+           <!-- <input type="text" name="tallas"> !-->
             <input type="text" name="category">
             <input type="text" name="description">
             <input type="text" name="image">
@@ -30,26 +20,5 @@ $query = mysqli_query($con, $sql);
             <input type="submit" value="Agregar producto">
         </form>
     </div>
-
-    <?php while($row = mysqli_fetch_array($query)): ?>
-    <div class="card"> 
-        <p>
-            <?= $row['id'] ?>
-        </p> 
-        <p>
-            <?= $row['name'] ?>
-        </p> 
-        <p>
-            <?= $row['category'] ?>
-        </p> 
-        <p>
-            <?= $row['description'] ?>
-        </p> 
-        <p>
-            <?= $row['genero'] ?>
-        </p> 
-        <img src="<?= $row['img'] ?>" width="150">
-    </div>
-        <?php endwhile; ?>
 </body>
 </html>
