@@ -9,7 +9,7 @@
 <body>
     <div> 
         <h1 class="text-black text-4xl font-bold text-center mt-5"> PANEL ADMINISTRATIVO </h1>
-        <p class="text-black text-2xl font-semibold text-center mt-3"> Bienvenido al panel administrativo, por favor, rellena los campos para agregar productos al mercado. </p>
+        <p class="text-black text-2xl font-semibold text-center mt-3"> Bienvenido al panel administrativo, por favor, rellena los campos para AGREGAR productos al mercado. </p>
         <form action="insert-product.php" method="POST" class="bg-slate-800/20 mt-5 w-xl m-auto flex flex-col p-5 gap-5"> 
             <input type="text" name="name" required class="bg-slate-100 p-2 rounded-md focus:outline-none outline-none focus:border-r-3 focus:border-slate-600 focus:border-b-3" placeholder="Nombre del producto">
           <!--  <input type="text" name="colors" required class="bg-slate-100 p-2 rounded-md focus:outline-none outline-none focus:border-r-3 focus:border-slate-600 focus:border-b-3" placeholder="Nombre del producto"> !-->

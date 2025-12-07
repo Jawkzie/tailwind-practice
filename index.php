@@ -50,11 +50,6 @@ $query = mysqli_query($con, $sql);
                 <input type="text" placeholder="¿Qué buscas el día de hoy?" class="bg-slate-800/20 m-auto rounded-4xl w-100 h-10 pl-10 focus:outline-none outline-none focus:border-r-3 focus:border-slate-600 focus:border-b-3">
                 <div class="bg-slate-800/20 absolute -right-20 w-10 h-10 rounded-xl"> <!-- TODO: OCULTARLO PARA SOLO ADMINS!-->
                     <a href="admin.php">
-                        <i class="fa-solid fa-pen-to-square text-2xl p-2"></i>
-                    </a>
-                </div>
-                <div class="bg-slate-800/20 absolute -right-33 w-10 h-10 rounded-xl">
-                    <a href="admin.php">
                         <i class="fa-solid fa-plus text-2xl p-2"></i>
                     </a>
                 </div>
@@ -67,9 +62,20 @@ $query = mysqli_query($con, $sql);
     <div class="card flex flex-col bg-neutral-100 shadow-sm mt-10 p-5 rounded min-h-[280px] relative">
       <div>
 
-        <div class="absolute bg-black w-10 h-10 right-5 rounded-xl">
-            <i class="fa-solid fa-eye text-indigo-50 text-2xl p-1.5"></i>
+        <div class="absolute bg-black w-8 h-8 right-5 rounded-xl">
+            <i class="fa-solid fa-eye text-indigo-50 text-lg p-1.5"></i>
         </div>
+
+        <div class="bg-slate-800/20 absolute w-8 h-8 right-5 top-15 rounded-xl"> 
+                <a href="editar.php?id=<?= $row['id'] ?>">
+                        <i class="fa-solid fa-pen-to-square text-lg p-1.5"></i>
+                    </a>
+                </div>
+        <div class="bg-slate-800/20 absolute w-8 h-8 right-5 top-25 rounded-xl"> 
+                <a href="eliminar.php?id=<?= $row['id'] ?>">
+                        <i class="fa-solid fa-trash text-lg p-1.5"></i>
+                    </a>
+                </div>
 
         <p class="font-bold text-lg mb-1">
           <?= $row['name'] ?>
