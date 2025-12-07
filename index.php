@@ -48,14 +48,29 @@ $query = mysqli_query($con, $sql);
             <div class="relative w-100 m-auto flex items-center"> 
                 <i class="fa-solid fa-magnifying-glass absolute left-3 bottom-2.01 text-xl text-black/50"></i>
                 <input type="text" placeholder="¿Qué buscas el día de hoy?" class="bg-slate-800/20 m-auto rounded-4xl w-100 h-10 pl-10 focus:outline-none outline-none focus:border-r-3 focus:border-slate-600 focus:border-b-3">
+                <div class="bg-slate-800/20 absolute -right-20 w-10 h-10 rounded-xl"> <!-- TODO: OCULTARLO PARA SOLO ADMINS!-->
+                    <a href="admin.php">
+                        <i class="fa-solid fa-pen-to-square text-2xl p-2"></i>
+                    </a>
+                </div>
+                <div class="bg-slate-800/20 absolute -right-33 w-10 h-10 rounded-xl">
+                    <a href="admin.php">
+                        <i class="fa-solid fa-plus text-2xl p-2"></i>
+                    </a>
+                </div>
             </div>
         </div>
 
 <div class="max-w-7xl mx-auto px-4">
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6 px-4 m-auto">
   <?php while($row = mysqli_fetch_array($query)): ?>
-    <div class="card flex flex-col bg-neutral-100 shadow-sm mt-10 p-5 rounded min-h-[280px]">
+    <div class="card flex flex-col bg-neutral-100 shadow-sm mt-10 p-5 rounded min-h-[280px] relative">
       <div>
+
+        <div class="absolute bg-black w-10 h-10 right-5 rounded-xl">
+            <i class="fa-solid fa-eye text-indigo-50 text-2xl p-1.5"></i>
+        </div>
+
         <p class="font-bold text-lg mb-1">
           <?= $row['name'] ?>
         </p> 
