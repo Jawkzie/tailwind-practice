@@ -21,3 +21,18 @@ openRegister.addEventListener('click', () => {
   registerModal.classList.remove('hidden');
   registerModal.classList.add('flex');
 });
+
+// PANEL ADMIN 
+
+const edit = document.querySelector('.edit-modal')
+const openEdit = document.querySelector('#edit');
+const submitEdit = document.querySelector('.edit-btn');
+
+const editModal = function() {
+    edit.classList.remove("hidden");
+    edit.classList.add("visible");
+}
+
+
+openEdit.addEventListener("click", editModal)
+

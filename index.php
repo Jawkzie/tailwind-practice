@@ -1,6 +1,6 @@
 <?php 
 include('php/connection.php');
-include ('php/controlador.php');
+include('php/controlador.php');
 session_start();
 $con = connection();
 
@@ -38,9 +38,9 @@ $query = mysqli_query($con, $sql);
     <div class="w-full h-full absolute z-100 flex hidden register-modal">
       <div class="w-sm h-85 bg-slate-700 flex flex-col m-auto items-center rounded-xl shadow-2xl relative modal">
         <h2 class="text-sky-50 text-2xl font-bold p-10">Formulario REGISTRO</h2>
-        <form class="w-80 flex flex-col gap-5" method="POST"> 
-          <input type="text" name="username" class="bg-slate-100 h-8 focus:outline-none focus:border-sky-500 focus:border-r-4 p-3" placeholder="Usuario">
-          <input type="password" name="password" class="bg-slate-100 h-8 focus:outline-none focus:border-sky-500 focus:border-r-4 p-3" placeholder="Contraseña">
+        <form class="w-80 flex flex-col gap-5" method="POST" action="php/register.php"> 
+          <input type="text" name="username" required class="bg-slate-100 h-8 focus:outline-none focus:border-sky-500 focus:border-r-4 p-3" placeholder="Usuario">
+          <input type="password" name="password" required class="bg-slate-100 h-8 focus:outline-none focus:border-sky-500 focus:border-r-4 p-3" placeholder="Contraseña">
           <input type="submit" value="Registrate" name="register" class="bg-slate-100 h-8 focus:outline-none focus:bg-sky-500 font-bold">
         </form>
       </div>
@@ -69,7 +69,7 @@ $query = mysqli_query($con, $sql);
     </nav>
 </header>
 
-
+                  <!-- TODO: HACER RESPONSIVE EL ANUNCIO Q NOS DAÑA TODO EL GRID !-->
     <div class="bg-[url(resources/foto-montana.jpeg)] w-200 h-lg bg-contain m-auto mt-12 bg-repeat-x bg-bottom relative rounded-xl">
         <div class="bg-white/10 backdrop-blur-xs w-full h-full rounded-xl">
             <h1 class="text-4xl font-semibold text-pretty w-lg p-10 opacity-50">Donde la <span class="font-bold">MODA</span> encuentra su <span class="font-bold">cima.</span></h1>
@@ -83,7 +83,7 @@ $query = mysqli_query($con, $sql);
 
                 <?php if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
                 <div class="bg-slate-800/20 absolute -right-20 w-10 h-10 rounded-xl"> <!-- TODO: OCULTARLO PARA SOLO ADMINS!-->
-                    <a href="php/admin.php" target="_blank">
+                    <a href="php/admin.php">
                         <i class="fa-solid fa-plus text-2xl p-2"></i>
                     </a>
                 </div>
@@ -98,9 +98,15 @@ $query = mysqli_query($con, $sql);
     <div class="card flex flex-col bg-neutral-100 shadow-sm mt-10 p-5 rounded min-h-[280px] relative">
       <div>
 
+        <?php 
+        $role = $_SESSION['role'] ?? null;
+        if($role === 'user' || $role === 'admin'): 
+        ?>
+        
         <div class="absolute bg-black w-8 h-8 right-5 rounded-xl">
             <i class="fa-solid fa-eye text-indigo-50 text-lg p-1.5"></i>
         </div>
+        <?php endif; ?>
 
         <?php if(isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
         <div class="bg-slate-800/20 absolute w-8 h-8 right-5 top-15 rounded-xl"> 

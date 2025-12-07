@@ -16,7 +16,7 @@ if (!empty($_POST["iniciar-sesion"])) {
             $_SESSION['role']=$datos->role;
             Header("location: index.php");
         } else {
-            echo "<script>alert('Acceso denegado.');</script>";
+            echo "<script>alert('Acceso denegado.'); window.location='index.php';</script>";
         }
     } else {
         echo "<script>alert('Rellene los campos.'); window.location='index.php';</script>";
