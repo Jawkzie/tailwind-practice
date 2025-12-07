@@ -17,14 +17,28 @@ $query = mysqli_query($con, $sql);
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
-<body class="bg-neutral-200/80">
+<body class="bg-neutral-200/80 select-none">
+
+      <!-- MODAL !-->  <!-- LOG IN !-->
+    <div class="w-full h-full bg-black/30 backdrop-blur-sm absolute z-100 flex invisible modal-login">
+      <div class="w-sm h-85 bg-slate-700/80 flex flex-col m-auto items-center rounded-xl shadow-2xl relative">
+        <p class="absolute bottom-5 text-sky-50">No tienes cuenta? <a href="#" class="text-sky-500 font-bold">Regístrate</a></p>
+        <h2 class="text-sky-50 text-2xl font-bold p-10">Formulario LOGIN</h2>
+        <form class="w-80 flex flex-col gap-5"> 
+          <input type="text" name="username" class="bg-slate-100 h-8 focus:outline-none focus:border-sky-500 focus:border-r-4 p-3" placeholder="Usuario">
+          <input type="password" name="password" class="bg-slate-100 h-8 focus:outline-none focus:border-sky-500 focus:border-r-4 p-3" placeholder="Contraseña">
+          <input type="submit" value="Iniciar Sesion" class="bg-slate-100 h-8 focus:outline-none focus:bg-sky-500 font-bold close-modal">
+        </form>
+      </div>
+    </div>
+
     <header class="w-full h-18 relative">
         <nav class="flex items-center justify-around z-10 w-full h-18 fixed bg-gray-300">
             <h1 class="text-4xl weight-bold font-sans font-bold"> <span class="text-sky-600 underline">M</span>arket</h1>
             <ul class="flex gap-10">
                 <li class="flex items-center">
                     <i class="fa-solid fa-user text-2xl mr-2 text-sky-600"></i>
-                    <a href="php/login.php" class="flex font-semibold underline">
+                    <a href="#" class="flex font-semibold underline" id="login">
                         Sign in
                     </a>
                 </li>
@@ -97,5 +111,8 @@ $query = mysqli_query($con, $sql);
 </div>
   </div>
 
+
+
+<script src="script.js"></script>
 </body>
 </html>
